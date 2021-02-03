@@ -1,0 +1,63 @@
+body {
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}
+
+.dispblck {
+  display: block;
+  margin: auto;
+  align-content: center;
+  text-align: center;
+}
+
+#sectionAdded {
+  height: 25vh;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  display: none;
+}
+
+#sectionAvailable {
+  height: 50vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  display: none;
+}
+
+#backButton {
+  display: none;
+  width: fit-content;
+  margin-top: 0.5rem;
+}
+
+#filter {
+  margin-top: 1rem;
+}
+
+#timeTable {
+  margin-top: 2rem;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+input {
+  padding-left: 1rem;
+  max-width: 20rem;
+}
+
+#uploadData {
+  margin-top: 3rem;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr; */
+}
+
+#studentList {
+  height: 60vh;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+}

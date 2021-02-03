@@ -1,0 +1,26 @@
+{
+  "name": "acbbackend",
+  "version": "1.0.0",
+  "description": "backend for acb software",
+  "main": "acbBackend/server.js",
+  "scripts": {
+    "start": "node acbBackend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NileshKumarGupta/acbBackend.git"
+  },
+  "author": "Nilesh Kumar Gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NileshKumarGupta/acbBackend/issues"
+  },
+  "homepage": "https://github.com/NileshKumarGupta/acbBackend#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.5.8"
+  }
+}

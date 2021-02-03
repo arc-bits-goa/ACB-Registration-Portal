@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="src/materialize.min.css"
+      media="screen,projection"
+    />
+    <link type="text/css" rel="stylesheet" href="src/index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ACB Software</title>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="nav-wrapper red-darken-3">
+        <img src="logo.png" />
+        <a href="index.html" class="brand-logo center">ACB Software</a>
+      </div>
+    </nav>
+
+    <div class="row">
+      <!-- Student List and Section List -->
+      <div class="col s3" id="toHide">
+        <blockquote id="slt">
+          <h4>Student List</h4>
+        </blockquote>
+        <a class="waves-effect waves-light btn" id="downloadAllButton">
+          <i class="material-icons right">cloud_download</i>
+          Download All
+        </a>
+        <a id="dummyLink" style="display: none;"></a>
+        <div class="collection" id="studentList">
+          <div class="divider"></div>
+          <!-- preloader template -->
+          <div
+            class="preloader-wrapper big active"
+            style="display: block; margin: 2rem auto;"
+          >
+            <div class="spinner-layer spinner-red-only">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div>
+              <div class="gap-patch">
+                <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s3">
+        <div
+          class="preloader-wrapper big active"
+          style="display: none; margin: 2rem auto;"
+          id="preSecLoader"
+        >
+          <div class="spinner-layer spinner-red-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="studinfo">
+          <a class="waves-effect waves-light btn" id="backButton">
+            <i class="material-icons center">arrow_back</i>
+          </a>
+
+          <blockquote></blockquote>
+
+          <a
+            class="waves-effect waves-light btn"
+            id="downloadButton"
+            style="display: none;"
+          >
+            <i class="material-icons right">cloud_download</i>
+            Download TimeTable
+          </a>
+        </div>
+
+        <blockquote id="sectionAddedHeading" style="display: none;">
+          <h6>Sections Added</h6>
+        </blockquote>
+
+        <div class="collection" id="sectionAdded">
+          <div class="divider"></div>
+        </div>
+
+        <blockquote id="sectionAvailableHeading" style="display: none;">
+          <h6>Sections Available</h6>
+          <input type="text" id="filter" placeholder="Search for Sections" />
+        </blockquote>
+
+        <div class="collection" id="sectionAvailable">
+          <div class="divider"></div>
+        </div>
+      </div>
+
+      <!-- timetable -->
+      <div id="timeTable" class="col s9">
+        <table class="striped highlight centered">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+              <th>Saturday</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+
+        <div class="divider"></div>
+
+        <!-- Action Buttons -->
+        <div class="row" style="margin-top: 3rem;">
+          <!-- Prerequisites Modal-->
+          <div class="col s3 dispblck">
+            <a
+              class="waves-effect waves-light btn modal-trigger"
+              href="#modal1"
+              id="prereqbtn"
+              >Prerequisites</a
+            >
+            <div id="prerequisiteModal" class="modal">
+              <div class="modal-content">
+                <h4>Prerequisites</h4>
+                <div class="collection" id="prereqList">
+                  <div class="divider"></div>
+                  <div
+                    class="preloader-wrapper big active"
+                    style="display: block; margin: 2rem auto;"
+                  >
+                    <div class="spinner-layer spinner-red-only">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div>
+                      <div class="gap-patch">
+                        <div class="circle"></div>
+                      </div>
+                      <div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <a
+                  href="#!"
+                  class="modal-close waves-effect waves-green btn-flat"
+                  >Ok</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Exam Schedule Modal-->
+          <div class="col s3 dispblck">
+            <a
+              class="waves-effect waves-light btn modal-trigger"
+              href="#modal1"
+              id="exambtn"
+              >Exam Clashes</a
+            >
+            <div id="examModal" class="modal">
+              <div class="modal-content">
+                <h4>Exam Clashes</h4>
+                <div class="collection" id="examClashList">
+                  <div class="divider"></div>
+                  <div
+                    class="preloader-wrapper big active"
+                    style="display: block; margin: 2rem auto;"
+                  >
+                    <div class="spinner-layer spinner-red-only">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div>
+                      <div class="gap-patch">
+                        <div class="circle"></div>
+                      </div>
+                      <div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <a
+                  href="#!"
+                  class="modal-close waves-effect waves-green btn-flat"
+                  >Ok</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Validate Action Button -->
+          <div class="col s3 dispblck">
+            <a
+              class="waves-effect waves-light btn modal-trigger"
+              href="#modal1"
+              id="validateButton"
+              >Validate</a
+            >
+            <div id="validateModal" class="modal">
+              <div class="modal-content">
+                <h4>Conflicts</h4>
+                <p></p>
+              </div>
+              <div class="modal-footer">
+                <a
+                  href="#!"
+                  class="modal-close waves-effect waves-green btn-flat"
+                  >Ok</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Save Action Button -->
+          <div class="col s3 dispblck">
+            <a class="waves-effect waves-light btn disabled" id="saveButton"
+              ><i class="material-icons right">save</i>Save</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="uploadData">
+      <div id="uploadStudentList">
+        <blockquote>Upload Student List</blockquote>
+        <input type="file" id="listInput" />
+        <a class="waves-effect waves-light btn" id="upStButton">
+          <i class="material-icons right">cloud_upload</i>Upload
+        </a>
+      </div>
+      <div id="uploadTimeTable">
+        <blockquote>Upload Timetable</blockquote>
+        <input type="file" id="ttInput" />
+        <a class="waves-effect waves-light btn" id="upTtButton">
+          <i class="material-icons right">cloud_upload</i>Upload
+        </a>
+      </div>
+      <div>
+        <blockquote>Upload Prerequisites</blockquote>
+        <input type="file" id="PqInput" />
+        <a class="waves-effect waves-light btn" id="upPqButton">
+          <i class="material-icons right">cloud_upload</i>Upload
+        </a>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="src/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.3/xlsx.full.min.js"></script>
+    <script src="src/index.js"></script>
+  </body>
+</html>
