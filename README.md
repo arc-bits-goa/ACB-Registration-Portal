@@ -24,7 +24,7 @@
 ### Install
 
 ```sh
-npm install
+cd acbBackend && npm install
 ```
 
 ### Usage
