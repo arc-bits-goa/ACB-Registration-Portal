@@ -188,27 +188,31 @@ document.querySelector("#upTtButton").addEventListener("click", () => {
       axios
         .put(backendString + "/ttdelete")
         .then((res) => {
-          let total = 1;
-          console.log(res);
+          let curr = 0
+          const total = Math.ceil(data.length / 50)
+          console.log(total)
           let last = 0;
           let end = Math.min(50, data.length - 1);
-          while (end != data.length) {
+          while (true) {
             axios
               .post(backendString + "/ttUpdate", {
                 courseData: data.slice(last, end),
               })
               .then((res) => {
-                total++;
                 M.toast({ html: "Saving" });
+                curr++;
+                console.log(curr)
               })
               .catch((err) => console.log(err));
             last = end;
+            if (end == data.length){
+              break;
+            }
             end = Math.min(last + 50, data.length);
           }
 
           setInterval(() => {
-            if (total >= data.length / 50) {
-              total = 0;
+            if (curr == total) {
               M.toast({ html: "Succesfully Saved" });
               setTimeout(
                 () => (window.location = "https://acbsoftware.netlify.app"),
