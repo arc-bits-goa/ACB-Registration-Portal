@@ -5,8 +5,9 @@ const validateButton = document.querySelector("#validateButton");
 const saveButton = document.querySelector("#saveButton");
 const backButton = document.querySelector("#backButton");
 const filter = document.querySelector("#filter");
-const backendString = "https://acbdata.herokuapp.com";
+const backendString = "https://acbdata.up.railway.app";
 
+console.log(backendString);
 // intializing Materailize js class
 M.AutoInit();
 
@@ -921,8 +922,6 @@ const getTT = (id, collitp) => {
           collit.innerText =
             element.Subject +
             element.Catalog +
-            " " +
-            element["COURSETITLE"] +
             " " +
             element.Section;
 

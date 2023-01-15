@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 
-const client = new MongoClient("mongodb+srv://nilesh:augsd@cluster0-afaic.mongodb.net/test?retryWrites=true&w=majority", {
+const client = new MongoClient("mongodb+srv://augsd:EWFOdHvDbVaLFqwG@cluster0.9qcgvl4.mongodb.net/?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
